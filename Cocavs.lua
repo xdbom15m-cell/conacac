@@ -16,33 +16,10 @@ for _, player in ipairs(game.Players:GetPlayers()) do
     end
 end
 local Players = game:GetService("Players")
-local HttpService = game:GetService("HttpService")
-
-local player = Players.LocalPlayer
-
-local data = {
-    ["content"] = "🎮 Người dùng script: **" .. player.Name .. "** (@sangigy9"
-        .. player.DisplayName .. ")"
-}
-
-local request = syn and syn.request
-    or http_request
-    or request
-    or (http and http.request)
-
-if request then
-    request({
-        Url = "https://discord.com/api/webhooks/1514442038618099793/hqDlVkyHSTBc1_1E_ZpBIB91py0j74NFfjO3YjLcIYc9jS24zjBZGB_Y_yLv8aPp7qP0",
-        Method = "POST",
-        Headers = {
-            ["Content-Type"] = "application/json"
-        },
-        Body = HttpService:JSONEncode(data)
-    })
 end
 local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/cakukloj-lab/No/refs/heads/main/Orion_Orange_Transparent_09_Small.lua.txt"))()
 local Window = OrionLib:MakeWindow({
-	Name = "hideoutngu",
+	Name = "concac133",
 	HidePremium = false,
 	SaveConfig = false,
 	ConfigFolder = "MobFarm"
