@@ -426,14 +426,14 @@ player.CharacterAdded:Connect(function(newChar)
     hrp = newChar:WaitForChild("HumanoidRootPart")
 end)
 
-local AutoNgungu = false
+local AutoNgungu = true
 local mainConnection
 
 local HEIGHT_ABOVE = 9.8
 
 Tab:AddToggle({
     Name = "Auto ngungu",
-    Default = false,
+    Default = true,
     Callback = function(Value)
         AutoNgungu = Value
 
