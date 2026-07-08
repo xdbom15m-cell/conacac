@@ -351,9 +351,9 @@ RawTab:AddToggle({
 })
 local AutoPhePha = false
 
-RawTab:AddToggle({
-	Name = "Auto PhĂª Pha V2",
-	Default = false,
+Tab3:AddToggle({
+	Name = "Auto Phê Pha V2",
+	Default = true,
 	Callback = function(Value)
 		AutoPhePha = Value
 
@@ -416,7 +416,7 @@ RawTab:AddToggle({
 					end
 				end)
 
-				task.wait(99995)
+				task.wait(1.5)
 			end
 		end)
 	end
