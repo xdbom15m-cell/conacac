@@ -85,6 +85,9 @@ Tab:AddToggle({
 	end
 })
 
+-- Biến cấu hình: Đặt true để tự bay tới quái, false nếu chỉ muốn hút quái một chỗ
+local AutoTeleportToMob = true 
+
 RunService.Heartbeat:Connect(function()
 	if not AutoBring then
 		return
@@ -94,6 +97,10 @@ RunService.Heartbeat:Connect(function()
 		sethiddenproperty(LocalPlayer, "SimulationRadius", math.huge)
 	end)
 
+	-- Biến tạm để lưu vị trí con quái đầu tiên tìm thấy phục vụ cho việc Teleport
+	local TargetMobRoot = nil 
+
+	-- 1. Xử lý gom quái sự kiện (Event Mobs)
 	for _, Mob in ipairs(EventMobFolder:GetChildren()) do
 		local Humanoid = Mob:FindFirstChildOfClass("Humanoid")
 		local MobRoot = Mob:FindFirstChild("HumanoidRootPart")
@@ -105,11 +112,15 @@ RunService.Heartbeat:Connect(function()
 					MobRoot.Velocity = Vector3.zero
 					MobRoot.RotVelocity = Vector3.zero
 					MobRoot.CFrame = TargetCFrame
+					
+					-- Lưu lại quái sự kiện/boss để lát nữa nhân vật bay tới
+					if not TargetMobRoot then TargetMobRoot = MobRoot end
 				end)
 			end
 		end
 	end
 
+	-- 2. Xử lý gom quái thường (Normal Mobs)
 	for _, Mob in ipairs(NormalMobFolder:GetChildren()) do
 		local Humanoid = Mob:FindFirstChildOfClass("Humanoid")
 		local MobRoot = Mob:FindFirstChild("HumanoidRootPart")
@@ -121,9 +132,25 @@ RunService.Heartbeat:Connect(function()
 					MobRoot.Velocity = Vector3.zero
 					MobRoot.RotVelocity = Vector3.zero
 					MobRoot.CFrame = TargetCFrame
+					
+					-- Nếu chưa có quái Event thì lấy tạm quái thường để bay tới
+					if not TargetMobRoot then TargetMobRoot = MobRoot end
 				end)
 			end
 		end
+	end
+
+	-- 3. Phần code mới thêm: Teleport nhân vật đến quái đang bị gom (Cao hơn đầu quái 5 studs)
+	if AutoTeleportToMob and TargetMobRoot then
+		pcall(function()
+			-- Cập nhật lại Character và Root đề phòng trường hợp bạn bị chết/reset nhân vật
+			local CurrentChar = LocalPlayer.Character
+			if CurrentChar and CurrentChar:FindFirstChild("HumanoidRootPart") then
+				local CurrentRoot = CurrentChar.HumanoidRootPart
+				CurrentRoot.CFrame = TargetMobRoot.CFrame * CFrame.new(0, 5, 0)
+				CurrentRoot.Velocity = Vector3.zero
+			end
+		end)
 	end
 end)
 
