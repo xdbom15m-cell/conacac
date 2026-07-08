@@ -82,7 +82,6 @@ RunService.Heartbeat:Connect(function()
 	end
 end)
 
-OrionLib:Init()
 
 
 local SSJBDamage = true
@@ -119,8 +118,6 @@ RawTab:AddToggle({
 		end
 	end
 })
-
-OrionLib:Init()
 
 
 getgenv().AutoBlast = true
@@ -259,7 +256,7 @@ RawTab:AddToggle({
 })
 RawTab:AddToggle({
     Name = "Godmode",
-    Default = falsee,
+    Default = false,
     Callback = function(v)
         getgenv().AntiDie = v
         spawn(function()
@@ -351,7 +348,7 @@ RawTab:AddToggle({
 })
 local AutoPhePha = false
 
-Tab3:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Phê Pha V2",
 	Default = true,
 	Callback = function(Value)
@@ -508,7 +505,7 @@ RawTab:AddToggle({
 		end
 	end
 })
-local AutoPhePha = True
+local AutoPhePha = true
 
 RawTab:AddToggle({
 	Name = "Auto Phê Pha V2",
@@ -1075,7 +1072,6 @@ RawTab:AddToggle({
 	end
 })
 
-OrionLib:Init()
 local AutoPhePha = true
 
 RawTab:AddToggle({
