@@ -1147,6 +1147,50 @@ RawTab:AddToggle({
 			end
 		end)
 	end
+		local Section = RawTab:AddSection({
+    Name = "equip weapin"
+})
+local SelectedTool = 2
+local AutoEquipTools = false
+
+local Dropdown = RawTab:AddDropdown({
+	Name = "Auto equiptools dls",
+	Default = "2",
+	Options = {"1","2","3","4","5","6"},
+	Callback = function(Value)
+		SelectedTool = tonumber(Value)
+	end
+})
+
+RawTab:AddToggle({
+	Name = "Auto EquipTools",
+	Default = false,
+	Callback = function(Value)
+		AutoEquipTools = Value
+
+		if Value then
+			task.spawn(function()
+				while AutoEquipTools do
+					local args = {
+						SelectedTool
+					}
+
+					game:GetService("ReplicatedStorage")
+						:WaitForChild("Packages")
+						:WaitForChild("_Index")
+						:WaitForChild("sleitnick_knit@1.4.7")
+						:WaitForChild("knit")
+						:WaitForChild("Services")
+						:WaitForChild("ToolService")
+						:WaitForChild("RE")
+						:WaitForChild("UpdatePlayerToolbarSelection")
+						:FireServer(unpack(args))
+
+					task.wait(0.1)
+				end
+			end)
+		end
+	end
 })
 
 OrionLib:Init()	
