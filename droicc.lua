@@ -45,19 +45,19 @@ local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local Window = OrionLib:MakeWindow({
-	Name = "huhu",
+	Name = "chetmemaydi",
 	HidePremium = false,
 	SaveConfig = true,
 	ConfigFolder = "Config"
 })
 
 local Tab = Window:MakeTab({
-	Name = "Combat🗡️",
+	Name = "ocho",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
 local Tab2 = Window:MakeTab({
-	Name = "LocalPlayer⭐",
+	Name = "oclon",
 	Icon = "rbxassetid://4483345998",
 	PremiumOnly = false
 })
@@ -347,8 +347,8 @@ Tab:AddToggle({
 	end
 })
 Tab:AddToggle({
-    Name = "núp sau đá :))",
-    Default = true,
+    Name = "oc con cho",
+    Default = false,
     Callback = function(v)
         getgenv().AntiDie = v
         spawn(function()
