@@ -9,13 +9,13 @@ local Window = OrionLib:MakeWindow({
 })
 
 -- [[ 1. TAB:main ]] --
-local Tab = Window:MakeTab({
+local RawTab = Window:MakeTab({
     Name = "main",
     Icon = "rbxassetid://4483345998",
     PremiumOnly = false
 })
 
-Tab:AddSection({Name = "Dragon Blox"}) 
+RawTab:AddSection({Name = "Dragon Blox"})
 
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -32,7 +32,7 @@ local TargetCFrame = CFrame.new(41.9730225, 276.267853, 316.27887)
 
 local AutoBring = true -- MỞ SẴN
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Bring 1 Chỗ",
 	Default = true,
 	Callback = function(Value)
@@ -87,7 +87,7 @@ OrionLib:Init()
 
 local SSJBDamage = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Ssjb x0.25 Damage",
 	Default = true,
 	Callback = function(Value)
@@ -125,7 +125,7 @@ OrionLib:Init()
 
 getgenv().AutoBlast = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Energy Blast",
 	Default = true,
 	Callback = function(Value)
@@ -184,7 +184,7 @@ Tab:AddToggle({
 })
 
                             
-Tab:AddToggle({
+RawTab:AddToggle({
     Name = "Auto Play (Next Area)",
     Default = true,
     Flag = "AutoPlay",
@@ -203,7 +203,7 @@ Tab:AddToggle({
 })
 getgenv().AutoStart = false
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Start",
 	Default = false,
 	Callback = function(Value)
@@ -257,7 +257,7 @@ Tab:AddToggle({
 		end)
 	end
 })
-Tab:AddToggle({
+RawTab:AddToggle({
     Name = "Godmode",
     Default = falsee,
     Callback = function(v)
@@ -277,7 +277,7 @@ Tab:AddToggle({
 local SpectateMob = false
 local CurrentCamera = workspace.CurrentCamera
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Spectator Boss",
 	Default = false,
 	Callback = function(Value)
@@ -317,7 +317,7 @@ Tab:AddToggle({
 		end)
 	end
 })
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto lock",
 	Default = true,
 	Callback = function(Value)
@@ -351,7 +351,7 @@ Tab:AddToggle({
 })
 local AutoPhePha = false
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto PhĂª Pha V2",
 	Default = false,
 	Callback = function(Value)
@@ -425,7 +425,7 @@ Tab:AddToggle({
 local AutoEnergyEnabled = true
 local isCharging = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
     Name = "nhingi",
     Default = true,
     Callback = function(Value)
@@ -481,7 +481,7 @@ Tab:AddToggle({
 })
 local HideName = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "HideName V2",
 	Default = true,
 	Callback = function(Value)
@@ -510,7 +510,7 @@ Tab:AddToggle({
 })
 local AutoPhePha = True
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Phê Pha V2",
 	Default = true,
 	Callback = function(Value)
@@ -601,7 +601,7 @@ local releaseArgs = {{
 local AutoEnergyEnabled = true
 local isCharging = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
     Name = "Auto Năng Lượng ⚡",
     Default = true,
     Callback = function(Value)
@@ -657,7 +657,7 @@ Tab:AddToggle({
 })
 local TargetName = "10bdtr05"
 
-Tab:AddTextbox({
+RawTab:AddTextbox({
 	Name = "Tên Roblox",
 	Default = "10bdtr05",
 	TextDisappear = true,
@@ -666,7 +666,7 @@ Tab:AddTextbox({
 	end
 })
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Check & Activate",
 Default = true,
 	Callback = function()
@@ -783,7 +783,7 @@ task.spawn(function()
 	end
 end)
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Start Rejoin",
 	Default = true,
 	Callback = function(Value)
@@ -794,7 +794,7 @@ Tab:AddToggle({
 OrionLib:Init()
 local AutoPhePha = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Phê Pha V2",
 	Default = true,
 	Callback = function(Value)
@@ -809,448 +809,7 @@ Tab:AddToggle({
 					if charFolder then
 						local char = charFolder:FindFirstChild(player.Name)
 
-						if char and not char:FindFirstChild("Mode") then
-						 local SSJBDamage = true
-
-Tab:AddToggle({
-	Name = "Ssjb x0.25 Damage",
-	Default = true,
-	Callback = function(Value)
-		SSJBDamage = Value
-
-		if Value then
-			task.spawn(function()
-				while SSJBDamage do
-					local args = {
-						"Weapons_14_2",
-						{},
-						76
-					}
-
-					game:GetService("ReplicatedStorage")
-						:WaitForChild("Packages")
-						:WaitForChild("_Index")
-						:WaitForChild("sleitnick_knit@1.4.7")
-						:WaitForChild("knit")
-						:WaitForChild("Services")
-						:WaitForChild("SkillManagerV2")
-						:WaitForChild("RE")
-						:WaitForChild("ExecuteSkill")
-						:FireServer(unpack(args))
-
-					task.wait(0.1)
-				end
-			end)
-		end
-	end
-})
-
-OrionLib:Init()
-
-
-getgenv().AutoBlast = true
-
-Tab:AddToggle({
-	Name = "Auto Energy Blast",
-	Default = true,
-	Callback = function(Value)
-		getgenv().AutoBlast = Value
-
-		if Value then
-			task.spawn(function()
-				local TargetPosition = Vector3.new(41.9730225, 276.267853, 316.27887)
-				local MobFolder = workspace["World Mobs"]:WaitForChild("Event Mobs")
-
-				task.wait(5) -- đợi 5 giây trước khi bắt đầu
-
-				while getgenv().AutoBlast do
-					local TargetCFrame = nil
-					local ClosestDist = math.huge
-
-					for _, Mob in pairs(MobFolder:GetChildren()) do
-						local Humanoid = Mob:FindFirstChildOfClass("Humanoid")
-						local MobRoot = Mob:FindFirstChild("HumanoidRootPart")
-
-						if Humanoid and MobRoot and Humanoid.Health > 0 then
-							local Dist = (MobRoot.Position - TargetPosition).Magnitude
-
-							if Dist < ClosestDist then
-								ClosestDist = Dist
-								TargetCFrame = MobRoot.CFrame
-							end
-						end
-					end
-
-					if not TargetCFrame then
-						TargetCFrame = CFrame.new(TargetPosition)
-					end
-
-					local args = {
-						{
-							Camera = TargetCFrame * CFrame.new(0, 10, -30),
-							SkillId = "101",
-							Began = true,
-							CFrame = TargetCFrame,
-							["Typе"] = 1,
-							Aim = TargetCFrame.Position
-						}
-					}
-
-					game:GetService("ReplicatedStorage")
-						:WaitForChild("Remotes")
-						:WaitForChild("SkillRemote")
-						:FireServer(unpack(args))
-
-					task.wait(0.1)
-				end
-			end)
-		end
-	end
-})
-
-                            
-Tab:AddToggle({
-    Name = "Auto Play (Next Area)",
-    Default = true,
-    Flag = "AutoPlay",
-    Callback = function(Value)
-        _G.AutoPlay = Value
-        spawn(function()
-            while _G.AutoPlay do
-                local args = {true}
-                pcall(function()
-                    workspace:WaitForChild("Dungeon"):WaitForChild("Stages"):WaitForChild("0"):WaitForChild("NextArea"):WaitForChild("DungeonNextAreaPad"):WaitForChild("RE"):WaitForChild("Interact"):FireServer(unpack(args))
-                end)
-                task.wait(2.4)
-            end
-        end)
-    end
-})
-getgenv().AutoStart = false
-
-Tab:AddToggle({
-	Name = "Auto Start",
-	Default = false,
-	Callback = function(Value)
-		getgenv().AutoStart = Value
-
-		task.spawn(function()
-			local started = false
-
-			while getgenv().AutoStart do
-				task.wait(1.5)
-
-				local worldMobs = workspace:FindFirstChild("World Mobs")
-				local eventMobs = worldMobs and worldMobs:FindFirstChild("Event Mobs")
-				local garriot = eventMobs and eventMobs:FindFirstChild("Garriot")
-
-				if garriot then
-					local humanoid = garriot:FindFirstChildOfClass("Humanoid")
-
-					if humanoid then
-						if humanoid.Health > 0 then
-							started = true
-						end
-
-						if started and humanoid.Health <= 0 then
-							started = false
-
-							game:GetService("StarterGui"):SetCore("SendNotification", {
-								Title = "Auto Start",
-								Text = "25s start tiáº¿p...",
-								Duration = 5
-							})
-
-							task.wait(999999.5)
-
-							if getgenv().AutoStart then
-								game:GetService("ReplicatedStorage")
-									:WaitForChild("Packages")
-									:WaitForChild("_Index")
-									:WaitForChild("sleitnick_knit@1.4.7")
-									:WaitForChild("knit")
-									:WaitForChild("Services")
-									:WaitForChild("DungeonLobbyService")
-									:WaitForChild("RF")
-									:WaitForChild("StartDungeon")
-									:InvokeServer()
-							end
-						end
-					end
-				end
-			end
-		end)
-	end
-})
-Tab:AddToggle({
-    Name = "Godmode",
-    Default = falsee,
-    Callback = function(v)
-        getgenv().AntiDie = v
-        spawn(function()
-            while getgenv().AntiDie do
-                task.wait()
-                local char = game.Players.LocalPlayer.Character
-                if char and char:FindFirstChild("HumanoidRootPart") then
-                    char.HumanoidRootPart.CFrame = CFrame.new(70.4524002, 247.817719, -16.9801903, 1, 0, 0, 0, 1, 0, 0, 0, 1)
-                    char.HumanoidRootPart.Velocity = Vector3.new(0,0,0)
-                end
-            end
-        end)
-    end
-})
-local SpectateMob = false
-local CurrentCamera = workspace.CurrentCamera
-
-Tab:AddToggle({
-	Name = "Spectator Boss",
-	Default = false,
-	Callback = function(Value)
-		SpectateMob = Value
-
-		if not SpectateMob then
-			CurrentCamera.CameraSubject = game.Players.LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
-			return
-		end
-
-		task.spawn(function()
-			while SpectateMob do
-				task.wait(3)
-
-				local worldMobs = workspace:FindFirstChild("World Mobs")
-				if not worldMobs then continue end
-
-				local eventMobs = worldMobs:FindFirstChild("Event Mobs")
-				if not eventMobs then continue end
-
-				local mobList = {}
-
-				for _, mob in pairs(eventMobs:GetChildren()) do
-					local hum = mob:FindFirstChildOfClass("Humanoid")
-
-					if hum and hum.Health > 0 then
-						table.insert(mobList, hum)
-					end
-				end
-
-				if #mobList > 0 then
-					local randomMob = mobList[math.random(1, #mobList)]
-
-					CurrentCamera.CameraSubject = randomMob
-				end
-			end
-		end)
-	end
-})
-Tab:AddToggle({
-	Name = "Auto lock",
-	Default = true,
-	Callback = function(Value)
-		getgenv().AutoLock = Value
-
-		task.spawn(function()
-			while getgenv().AutoLock do
-				local garriot = GetGarriot()
-
-				if garriot then
-					local args = {
-						garriot
-					}
-
-					game:GetService("ReplicatedStorage")
-						:WaitForChild("Packages")
-						:WaitForChild("_Index")
-						:WaitForChild("sleitnick_knit@1.4.7")
-						:WaitForChild("knit")
-						:WaitForChild("Services")
-						:WaitForChild("SkillManager")
-						:WaitForChild("RE")
-						:WaitForChild("LockedOnChanged")
-						:FireServer(unpack(args))
-				end
-
-				task.wait(0.2)
-			end
-		end)
-	end
-})
-local AutoPhePha = false
-
-Tab:AddToggle({
-	Name = "Auto PhĂª Pha V2",
-	Default = false,
-	Callback = function(Value)
-		AutoPhePha = Value
-
-		task.spawn(function()
-			while AutoPhePha do
-				pcall(function()
-					local player = game.Players.LocalPlayer
-					local charFolder = workspace:FindFirstChild("Characters")
-
-					if charFolder then
-						local char = charFolder:FindFirstChild(player.Name)
-
-						if char and not char:FindFirstChild("Mode") then
-							local args = {
-								{
-									Camera = CFrame.new(
-										-28.790475845336914,
-										298.4656677246094,
-										-91.82173156738281,
-										0.8630251884460449,
-										0.06684061139822006,
-										-0.5007192492485046,
-										0,
-										0.9912075996398926,
-										0.1323155164718628,
-										0.5051608085632324,
-										-0.11419162154197693,
-										0.855437159538269
-									),
-									SkillId = "10",
-									Began = true,
-									CFrame = CFrame.new(
-										-20.313318252563477,
-										294.6113586425781,
-										-106.30424499511719,
-										0.863025426864624,
-										0.06684055924415588,
-										-0.5007189512252808,
-										-8.083265612413015e-09,
-										0.9912076592445374,
-										0.1323154717683792,
-										0.5051605105400085,
-										-0.11419161409139633,
-										0.8554373979568481
-									),
-									["Typ\208\181"] = 1,
-									Aim = vector.create(
-										4.722629547119141,
-										287.9955749511719,
-										-149.07611083984375
-									)
-								}
-							}
-
-							game:GetService("ReplicatedStorage")
-								:WaitForChild("Remotes")
-								:WaitForChild("SkillRemote")
-								:FireServer(unpack(args))
-						end
-					end
-				end)
-
-				task.wait(99995)
-			end
-		end)
-	end
-})
-
-local AutoEnergyEnabled = true
-local isCharging = true
-
-Tab:AddToggle({
-    Name = "nhingi",
-    Default = true,
-    Callback = function(Value)
-        AutoEnergyEnabled = Value
-        isCharging = false
-
-        task.spawn(function()
-            while AutoEnergyEnabled do
-                local player = game.Players.LocalPlayer
-                local char = player.Character
-
-                if not char then task.wait(1) continue end
-
-                local status = char:FindFirstChild("Status")
-                local energy = status and status:FindFirstChild("CurrentEnergy")
-
-                if energy then
-                    local current = energy.Value
-
-                    if current <= 1000 and not isCharging then
-                        isCharging = true
-
-                        game.ReplicatedStorage.Remotes.SkillRemote:FireServer(unpack(chargeArgs))
-
-                        local last = current
-                        local noUp = 0
-
-                        for i = 1,8 do
-                            task.wait(0.5)
-                            if not AutoEnergyEnabled then break end
-
-                            local now = energy.Value
-                            if now <= last + 20 then
-                                noUp += 1
-                                if noUp >= 4 then
-                                    break
-                                end
-                            else
-                                noUp = 0
-                                last = now
-                            end
-                        end
-
-                        game.ReplicatedStorage.Remotes.SkillRemote:FireServer(unpack(releaseArgs))
-                        isCharging = false
-                    end
-                end
-
-                task.wait(0.8)
-            end
-        end)
-    end
-})
-local HideName = true
-
-Tab:AddToggle({
-	Name = "HideName V2",
-	Default = true,
-	Callback = function(Value)
-		HideName = Value
-
-		if Value then
-			task.spawn(function()
-				while HideName do
-					pcall(function()
-						for _, char in pairs(workspace.Characters:GetChildren()) do
-							local hum = char:FindFirstChild("Humanoid")
-							if hum then
-								hum.DisplayName = "???"
-							end
-						end
-
-						game.Players.LocalPlayer.DisplayName = "???"
-						game.Players.LocalPlayer.Name = "???"
-					end)
-
-					task.wait(1)
-				end
-			end)
-		end
-	end
-})
-local AutoPhePha = True
-
-Tab:AddToggle({
-	Name = "Auto Phê Pha V2",
-	Default = true,
-	Callback = function(Value)
-		AutoPhePha = Value
-
-		task.spawn(function()
-			while AutoPhePha do
-				pcall(function()
-					local player = game.Players.LocalPlayer
-					local charFolder = workspace:FindFirstChild("Characters")
-
-					if charFolder then
-						local char = charFolder:FindFirstChild(player.Name)
-
-						if char and not char:FindFirstChild("Mode") then
+					if char and not char:FindFirstChild("Mode") then
 							local args = {
 								{
 									Camera = CFrame.new(
@@ -1326,7 +885,7 @@ local releaseArgs = {{
 local AutoEnergyEnabled = true
 local isCharging = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
     Name = "Auto Năng Lượng ⚡",
     Default = true,
     Callback = function(Value)
@@ -1382,7 +941,7 @@ Tab:AddToggle({
 })
 local TargetName = "10bdtr05"
 
-Tab:AddTextbox({
+RawTab:AddTextbox({
 	Name = "Tên Roblox",
 	Default = "10bdtr05",
 	TextDisappear = true,
@@ -1391,7 +950,7 @@ Tab:AddTextbox({
 	end
 })
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Check & Activate",
 Default = true,
 	Callback = function()
@@ -1508,7 +1067,7 @@ task.spawn(function()
 	end
 end)
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Start Rejoin",
 	Default = true,
 	Callback = function(Value)
@@ -1519,7 +1078,7 @@ Tab:AddToggle({
 OrionLib:Init()
 local AutoPhePha = true
 
-Tab:AddToggle({
+RawTab:AddToggle({
 	Name = "Auto Phê Pha V2",
 	Default = true,
 	Callback = function(Value)
@@ -1590,5 +1149,4 @@ Tab:AddToggle({
 	end
 })
 
-OrionLib:Init()
-										
+OrionLib:Init()	
