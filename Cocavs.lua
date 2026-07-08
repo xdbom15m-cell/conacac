@@ -17,12 +17,13 @@ for _, player in ipairs(game.Players:GetPlayers()) do
 end
 local Players = game:GetService("Players")
 end
-local OrionLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/cakukloj-lab/No/refs/heads/main/Orion_Orange_Transparent_09_Small.lua.txt"))()
+loadstring(game:HttpGet(('https://raw.githubusercontent.com/jensonhirst/Orion/main/source')))()
 local Window = OrionLib:MakeWindow({
-	Name = "concac133",
-	HidePremium = false,
-	SaveConfig = false,
-	ConfigFolder = "MobFarm"
+    Name = "DinhGiap | DinhGiap Mod",
+    HidePremium = false,
+    SaveConfig = true,
+    ConfigFolder = "DinhGiap_Hub",
+    IntroText = "DinhGiap"
 })
 
 local Tab = Window:MakeTab({
