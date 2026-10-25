@@ -16,18 +16,18 @@ local Window = Rayfield:CreateWindow({
 local MainTab = Window:CreateTab("Main", 4483362458)
 
 -- Variables
-local AutoRangeAtom = false
-local AutoDanhThuong = false
+local AutoRangeAtom = true
+local AutoDanhThuong = true
 local AutoPhePha = true
 local SelectedTool = 2
-local AutoEquipTools = false
-local AutoNextArea = false
+local AutoEquipTools = true
+local AutoNextArea = true
 
 -- ==================== TOGGLE ====================
 
 MainTab:CreateToggle({
     Name = "Auto Range Atom",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoRangeAtom",
     Callback = function(Value)
         AutoRangeAtom = Value
@@ -55,7 +55,7 @@ MainTab:CreateToggle({
 
 MainTab:CreateToggle({
     Name = "Auto Trình",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoTrinh",
     Callback = function(Value)
         AutoDanhThuong = Value
@@ -80,7 +80,7 @@ MainTab:CreateToggle({
 
 MainTab:CreateToggle({
     Name = "Auto đánh thường",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoDanhThuong",
     Callback = function(Value)
         AutoDanhThuong = Value
@@ -149,7 +149,7 @@ MainTab:CreateDropdown({
 
 MainTab:CreateToggle({
     Name = "Auto EquipTools",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoEquipTools",
     Callback = function(Value)
         AutoEquipTools = Value
@@ -175,11 +175,11 @@ MainTab:CreateToggle({
     end,
 })
 
-local AutoNextArea = false
+local AutoNextArea = true
 
 MainTab:CreateToggle({
     Name = "Auto NextArea",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoNextArea",
     Callback = function(Value)
         AutoNextArea = Value
@@ -224,14 +224,14 @@ player.CharacterAdded:Connect(function(newChar)
     hrp = newChar:WaitForChild("HumanoidRootPart")
 end)
 
-local AutoGodmode = false
+local AutoGodmode = true
 local mainConnection
 
 local HEIGHT_ABOVE = 14
 
 MainTab:CreateToggle({
     Name = "Auto Skill + Godmode V2 (Chạy Liên Tục)",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoGodmodeV2",
     Callback = function(Value)
         AutoGodmode = Value
@@ -311,11 +311,11 @@ MainTab:CreateToggle({
         end
     end
 })
-local AutoStartDungeon = false
+local AutoStartDungeon = true
 
 MainTab:CreateToggle({
     Name = "Auto StartDungeon Atom Max",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoStartDungeonAtomMax",
     Callback = function(Value)
         AutoStartDungeon = Value
@@ -370,11 +370,11 @@ MainTab:CreateToggle({
         end
     end
 })
-local AutoMode = false
+local AutoMode = true
 
 MainTab:CreateToggle({
     Name = "Auto Mode",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoMode",
     Callback = function(Value)
         AutoMode = Value
@@ -411,11 +411,11 @@ MainTab:CreateToggle({
         end
     end
 })
-local AutoLockAtom = false
+local AutoLockAtom = true
 
 MainTab:CreateToggle({
     Name = "Auto Lock Atom",
-    CurrentValue = false,
+    CurrentValue = true,
     Flag = "AutoLockAtom",
     Callback = function(Value)
         AutoLockAtom = Value
